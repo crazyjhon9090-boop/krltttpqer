@@ -10,7 +10,7 @@ const ITEMS = [
   {
     title: 'Especialidades',
     content:
-      'Atuação estratégica e técnica nas áreas Criminal, Civil e Juizados Especiais (Pequenas Causas), oferecendo suporte jurídico completo desde a consultoria até o contencioso.',
+      'Atuação estratégica e técnica nas áreas Criminal, Civil e Trabalhista, oferecendo suporte jurídico completo desde a consultoria até o contencioso.',
   },
   {
     title: 'Nossa Missão',
@@ -56,3 +56,4 @@ const AboutAccordion = () => {
 };
 
 export default AboutAccordion;
+
