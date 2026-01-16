@@ -15,7 +15,7 @@ const Footer = () => {
           <ul className="social-links">
 
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              <a href="https://www.instagram.com/luizfelipeloio/" target="_blank" rel="noreferrer">
                 <i className="fab fa-instagram"></i>
                 Seguir no Instagram
               </a>
@@ -29,7 +29,7 @@ const Footer = () => {
             </li>
 
             <li>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+              <a href="https://www.facebook.com/luizloio/" target="_blank" rel="noreferrer">
                 <i className="fab fa-facebook"></i>
                 Curtir no Facebook
               </a>
@@ -59,14 +59,14 @@ const Footer = () => {
             <img src={logo1} alt="Logo" />
           </div>
 
-          <p>Rua Exemplo, 123 - São Paulo, SP</p>
-          <p>contato@exemplo.com</p>
-          <p>(11) 99999-9999</p>
+          <p>Entre em Contato</p>
+          <p>luiz_loio@hotmail.com</p>
+          <p>(91) 98731-9701</p>
         </div>
 
         {/* LINKS INTERNOS */}
         <div className="footer-column right">
-          <h4>Institucional</h4>
+          <h4>+ Info</h4>
 
           <ul className="footer-links">
             <li><Link to="/contato">Contato</Link></li>
@@ -78,7 +78,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} — Todos os direitos reservados.</p>
+        <p>© {new Date().getFullYear()} — Todos os direitos reservados.<a href="https://www.technortesolucoes.com.br/" target="_blank" rel="noreferrer">Tech Norte Soluções </a> </p>
       </div>
     </footer>
   );
