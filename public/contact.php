@@ -1,7 +1,7 @@
 <?php
 
 // CONFIGURE AQUI
-$para = "email@empresa.com.br";  // <-- coloque o email da empresa
+$para = "luiz_loio@hotmail.com";  // <-- o email 
 $assunto = "Contato do site";
 
 $nome = $_POST['name'] ?? '';
@@ -32,3 +32,4 @@ if (mail($para, $assunto, $conteudo, $headers)) {
     echo "Erro ao enviar";
 }
 ?>
+
