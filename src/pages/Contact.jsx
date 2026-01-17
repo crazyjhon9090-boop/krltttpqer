@@ -1,31 +1,35 @@
-import React, { useState } from "react";
+// src/pages/Contact.jsx
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import SidebarContainer from "../components/sidebars/SidebarContainer";
 import "../styles/Contact.css";
 import "../styles/layout-base.css";
 
 const Contact = () => {
+  const formRef = useRef(null);
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setStatus("Enviando...");
 
     try {
-      const formData = new FormData(e.target);
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-      const res = await fetch("https://SEUSITE.com/contact.php", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (res.ok) {
-        setStatus("Mensagem enviada com sucesso!");
-        e.target.reset();
-      } else {
-        setStatus("Erro ao enviar. Tente novamente.");
-      }
-    } catch {
-      setStatus("Falha na conexão.");
+      setStatus("Mensagem enviada com sucesso!");
+      formRef.current.reset();
+    } catch (error) {
+      console.error(error);
+      setStatus("Erro ao enviar. Tente novamente.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -40,7 +44,11 @@ const Contact = () => {
         {/* CONTEÚDO PRINCIPAL */}
         <div className="contact-content">
           <div className="contact-card">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              ref={formRef}
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
               <label>Nome</label>
               <input type="text" name="name" required />
 
@@ -50,8 +58,12 @@ const Contact = () => {
               <label>Mensagem</label>
               <textarea name="message" rows="5" required />
 
-              <button type="submit" className="contact-btn">
-                Enviar mensagem
+              <button
+                type="submit"
+                className="contact-btn"
+                disabled={loading}
+              >
+                {loading ? "Enviando..." : "Enviar mensagem"}
               </button>
 
               {status && <p className="form-status">{status}</p>}
