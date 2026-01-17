@@ -40,7 +40,7 @@ const Home = () => {
         .filter((cat) => cat.posts.length > 0)
         .map((cat) => ({
           ...cat,
-          posts: cat.posts.slice(0, 4),
+          posts: cat.posts.slice(0, 3),
         }));
 
       setPostsByCategory(result);
@@ -111,4 +111,5 @@ const Home = () => {
 };
 
 export default Home;
+
 
