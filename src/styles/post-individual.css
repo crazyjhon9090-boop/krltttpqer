@@ -63,6 +63,7 @@
   line-height: 1.65;
   color: #374151;
   text-align: justify;
+  width: 600px;
 }
 
 /* =========================
@@ -115,4 +116,5 @@
     display: none;
   }
 }
+
 
